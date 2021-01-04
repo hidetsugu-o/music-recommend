@@ -24,10 +24,22 @@
         </li>
       <% end %>
 
-
       </ul>
     </div>
   </nav>
 </header>
 
+<div class="main">
+  <div class="link">
+    <%= link_to "新規投稿ページへ", new_post_path %>
+  </div>
+</div>
+
+<div class="row">
+  <% @ids.each do |id| %>
+    <div class="card embed-responsive embed-responsive-16by9 col-md-6 col-12" >
+      <iframe class="embed-responsive-item" src=<%= "https://www.youtube.com/embed/#{id}" %>></iframe>
+    </div>
+  <% end %>
+</div>
 
