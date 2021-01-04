@@ -1,2 +1,33 @@
-<h1>MusicRecommendのトップページ</h1>
-<%= link_to '会員登録ページへ', new_user_registration_path %>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand text-white" href="#">Recommend Music Storage!</a>
+    <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+
+      <% unless user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to '会員登録ページへ', new_user_registration_path, {class: "nav-link text-white"} %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログインページへ', new_user_session_path, {class: "nav-link text-white"} %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'ユーザー情報編集', edit_user_registration_path, {class: "nav-link text-white"} %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, { method: :delete, class: "nav-link text-white"} %>
+        </li>
+      <% end %>
+
+
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
