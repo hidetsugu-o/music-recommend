@@ -60,3 +60,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'devise'
 gem 'line-bot-api'
+gem 'omniauth-line', :github => 'gomo/omniauth-line'
+gem "omniauth-rails_csrf_protection"

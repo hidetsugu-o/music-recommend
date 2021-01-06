@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  }
   root 'posts#index'
-  resources :posts, only: [:index, :new, :create]
   post '/callback' => 'linebot#callback'
+  resources :posts, only: [:index, :new, :create]
 end
