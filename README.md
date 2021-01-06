@@ -2,11 +2,13 @@
 
 ## Usersテーブル
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| nickname           | string | null: false, unique: true |
+| Column             | Type   | Options                        |
+| ------------------ | ------ | ------------------------------ |
+| user_id            | string | null: false, primary_key: true |
+| user_name          | string | null: false                    |
+| user_icon          | string |                                |
+| user_message       | string |                                |
+| encrypted_password | string | null: false                    |
 
 ### Association
 
@@ -18,10 +20,8 @@
 
 | Column   | Type       | Options           |
 | -------- | ---------- | ----------------- |
-| title    | string     | null: false       |
-| text     | text       |                   |
-| link     | string     | null: false       |
-| user     | references | foreign_key: true |
+| video_id | string     | null: false       |
+| user_id  | string     | foreign_key: true |
 
 ### Association
 
@@ -58,10 +58,10 @@
 
 ## Post_tag_relationsテーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| post   | references | null: false, foreign_key: true |
-| tag    | references | null: false, foreign_key: true |
+| Column | Type   | Options                        |
+| ------ | ------ | ------------------------------ |
+| post   | string | null: false, foreign_key: true |
+| tag    | string | null: false, foreign_key: true |
 
 ### Association
 

@@ -1,5 +1,5 @@
 <h2>新規投稿してください</h2>
 <%= form_with model:@post, local: true do |f| %>
-  <%= f.text_area :link, placeholder: "YouTubeのリンクを記載してね" %>
+  <%= f.text_area :video_id, placeholder: "YouTubeのリンクを記載してね" %>
   <%= f.submit '投稿する' %>
 <% end %>
