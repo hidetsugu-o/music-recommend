@@ -13,17 +13,18 @@
 ActiveRecord::Schema.define(version: 2021_01_04_085224) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "link", null: false
+    t.string "video_id", null: false
+    t.string "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "fk_rails_5b5ddfd518"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", primary_key: "user_id", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "icon"
+    t.string "message"
     t.string "encrypted_password", default: "", null: false
-    t.string "user_id", null: false
-    t.string "user_name", null: false
-    t.string "user_icon"
-    t.string "user_message"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -32,4 +33,5 @@ ActiveRecord::Schema.define(version: 2021_01_04_085224) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "posts", "users", primary_key: "user_id"
 end

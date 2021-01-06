@@ -29,11 +29,20 @@
   </div>
 </div>
 
-<div class="row">
-  <% @ids.each do |id| %>
-    <div class="card embed-responsive embed-responsive-16by9 col-md-6 col-12" >
-      <iframe class="embed-responsive-item" src=<%= "https://www.youtube.com/embed/#{id}" %>></iframe>
+<div class="center">
+  <% @posts.each do |post| %>
+    <div class="d-flex">
+      <p class="text-center">
+      <%= post.user.name %>
+      </p>
+      <div class="col-1">
+        <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
+      </div>
     </div>
+    <div class="card embed-responsive embed-responsive-16by9 col-md-6 col-12" >
+      <iframe class="embed-responsive-item" src=<%= "https://www.youtube.com/embed/#{post.video_id}" %>></iframe>
+    </div>
+    <br>
   <% end %>
 </div>
 

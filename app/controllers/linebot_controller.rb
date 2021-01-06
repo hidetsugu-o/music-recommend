@@ -17,16 +17,18 @@ class LinebotController < ApplicationController
           contact = JSON.parse(response.body)  # JSONデータをrubyのハッシュデータに変換
           
           user_id = contact['userId']
-          user_name = contact['displayName']
-          user_icon = contact['pictureUrl']
-          user_message = contact['statusMessage']
-          message = {
+          name = contact['displayName']
+
+          reply = {
             type: 'text',
-            text: "登録が完了したぺん！\n\nhttps://music-recommend-32514.herokuapp.com/"
+            text: "#{name}さん、登録が完了したぺん！\n\nhttps://music-recommend-32514.herokuapp.com/"
           }
 
-          if Post.create(link: event.message['text'])
-            client.reply_message(event['replyToken'], message)
+          url = event.message['text']
+          url_slice(url)
+
+          if Post.create(video_id: url, user_id: user_id)
+            client.reply_message(event['replyToken'], reply)
           end
         end
       end
@@ -53,4 +55,11 @@ class LinebotController < ApplicationController
     end
   end
 
+  def url_slice(url)
+    if url.include?("=")
+      url.slice!("https://www.youtube.com/watch?v=")
+    else
+      url.slice!("https://youtu.be/")
+    end
+  end
 end
