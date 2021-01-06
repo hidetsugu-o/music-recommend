@@ -20,7 +20,6 @@ class LinebotController < ApplicationController
           user_name = contact['displayName']
           user_icon = contact['pictureUrl']
           user_message = contact['statusMessage']
-          
           message = {
             type: 'text',
             text: "登録が完了したぺん！\n\nhttps://music-recommend-32514.herokuapp.com/"
