@@ -38,9 +38,15 @@
       <div class="col-1">
         <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
       </div>
-      <div class="button">
-        <%= link_to "削除", post_path(post.id), method: :delete %>
-      </div>
+
+      <% if user_signed_in? %>
+        <% if current_user.user_id == post.user_id %>
+          <div class="button">
+            <%= link_to "削除", post_path(post.id), method: :delete %>
+          </div>
+        <% end %>
+      <% end %>
+      
     </div>
 
     <div class="card embed-responsive embed-responsive-16by9 col-md-6 col-12" >
