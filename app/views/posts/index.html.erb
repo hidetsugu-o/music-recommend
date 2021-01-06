@@ -10,17 +10,11 @@
 
       <% unless user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to '会員登録ページへ', new_user_registration_path, {class: "nav-link text-white"} %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'ログインページへ', new_user_session_path, {class: "nav-link text-white"} %>
+          <%= link_to 'LINEでログイン', user_line_omniauth_authorize_path, { method: :post, class: "nav-link text-white" } %>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to 'ユーザー情報編集', edit_user_registration_path, {class: "nav-link text-white"} %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, { method: :delete, class: "nav-link text-white"} %>
+        <li class="nav-item active">
+          <%= link_to "ログアウト", destroy_user_session_path, { method: :delete, class: "nav-link text-white" } %>
         </li>
       <% end %>
 
