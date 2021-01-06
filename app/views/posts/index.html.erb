@@ -38,10 +38,15 @@
       <div class="col-1">
         <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
       </div>
+      <div class="button">
+        <%= link_to "削除", post_path(post.id), method: :delete %>
+      </div>
     </div>
+
     <div class="card embed-responsive embed-responsive-16by9 col-md-6 col-12" >
       <iframe class="embed-responsive-item" src=<%= "https://www.youtube.com/embed/#{post.video_id}" %>></iframe>
     </div>
+
     <br>
   <% end %>
 </div>
