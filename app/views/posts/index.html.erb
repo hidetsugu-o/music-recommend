@@ -41,7 +41,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <%= form_with model:@post, local: true do |f| %>
+            <%= form_with model:@post, remote: true do |f| %>
               <%= f.text_area :video_id, placeholder: "YouTubeのリンクを記載してね" %>
               <%= f.submit '投稿する' %>
             <% end %>
@@ -52,37 +52,8 @@
   </div>
 <% end %>
 
-<div class="center">
+<div id="contents">
   <% @posts.each do |post| %>
-    <div class="d-flex">
-      <p class="text-center">
-        <%= post.user.name %>
-      </p>
-      <div class="col-1">
-        <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
-      </div>
-      <p class="text-center">
-        <%= l post.created_at %>
-      </p>
-      
-      <% if user_signed_in? %>
-        <% if current_user.user_id == post.user_id %>
-          <div class="button">
-            <%= link_to "削除", post_path(post.id), method: :delete %>
-          </div>
-        <% end %>
-
-        <div id="post_<%= post.id %>">
-          <%= render 'post', post: post %>
-        </div>
-
-      <% end %>
-    </div>
-
-    <div class="card embed-responsive embed-responsive-16by9 col-md-6 col-12" >
-      <iframe class="embed-responsive-item" src=<%= "https://www.youtube.com/embed/#{post.video_id}" %>></iframe>
-    </div>
-
-    <br>
+      <%= render partial: 'content', locals: { post: post } %>
   <% end %>
 </div>
