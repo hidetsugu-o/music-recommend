@@ -1,0 +1,6 @@
+<% if current_user.likes.exists?(post_id: post.id) %>
+  <%= button_to 'いいねを取り消す', post_likes_path(post.id), method: :delete, remote: true %>
+<% else %>
+  <%= button_to 'いいね', post_likes_path(post.id), method: :post, remote: true %>
+<% end %>
+(<%= post.liked_users.count %>)
