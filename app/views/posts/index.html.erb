@@ -23,11 +23,34 @@
   </nav>
 </header>
 
-<div class="main">
-  <div class="link">
-    <%= link_to "新規投稿ページへ", new_post_path %>
+<% if user_signed_in? %>
+  <div class="col-6 pt-3">
+    <!-- Button trigger modal -->
+    <div class="text-dark border p-3" data-toggle="modal" data-target="#exampleModalLong">
+      投稿しよう！
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Youtubeのリンクを記載してね</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= form_with model:@post, local: true do |f| %>
+              <%= f.text_area :video_id, placeholder: "YouTubeのリンクを記載してね" %>
+              <%= f.submit '投稿する' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="center">
   <% @posts.each do |post| %>
@@ -48,8 +71,12 @@
             <%= link_to "削除", post_path(post.id), method: :delete %>
           </div>
         <% end %>
+
+        <div id="post_<%= post.id %>">
+          <%= render 'post', post: post %>
+        </div>
+
       <% end %>
-      
     </div>
 
     <div class="card embed-responsive embed-responsive-16by9 col-md-6 col-12" >
@@ -59,4 +86,3 @@
     <br>
   <% end %>
 </div>
-
