@@ -14,6 +14,8 @@ class User < ApplicationRecord
   end
 
   has_many :posts
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
 
   def self.from_omniauth(auth)
     pass = Devise.friendly_token
