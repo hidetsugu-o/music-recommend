@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   }
   root 'posts#index'
   post '/callback' => 'linebot#callback'
-  resources :posts, only: [:index, :new, :create, :destroy]
+  resources :posts, only: [:index, :new, :create, :destroy] do
+    resources :likes, only: [:create, :destroy]
+  end
 end
