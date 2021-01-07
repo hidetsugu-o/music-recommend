@@ -23,45 +23,37 @@
   </nav>
 </header>
 
-<div class="main">
-  <div class="link">
-    <%= link_to "新規投稿ページへ", new_post_path %>
-  </div>
-</div>
+<% if user_signed_in? %>
+  <div class="col-6 pt-3">
+    <!-- Button trigger modal -->
+    <div class="text-dark border p-3" data-toggle="modal" data-target="#exampleModalLong">
+      投稿しよう！
+    </div>
 
-<div class="main-container">
-  <% @posts.each do |post| %>
-    <div class="d-flex">
-      <p class="text-center">
-      <%= post.user.name %>
-      </p>
-      <div class="col-1">
-        <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
-      </div>
-
-      <% if user_signed_in? %>
-        <% if current_user.user_id == post.user_id %>
-          <div class="button">
-            <%= link_to "削除", post_path(post.id), method: :delete %>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Youtubeのリンクを記載してね</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        <% end %>
-      <% end %>
-
-      <% if current_user.likes.exists?(post_id: post.id) %>
-        <%= button_to 'いいねを取り消す', post_likes_path(post.id), method: :delete %>
-      <% else %>
-        <%= button_to 'いいね', post_likes_path(post.id) %>
-      <% end %>
-      (<%= post.liked_users.count %>)
-      
+          <div class="modal-body">
+            <%= form_with model:@post, remote: true do |f| %>
+              <%= f.text_area :video_id, placeholder: "YouTubeのリンクを記載してね" %>
+              <%= f.submit '投稿する' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+<% end %>
 
-    <div class="card embed-responsive embed-responsive-16by9 col-md-6 col-12" >
-      <iframe class="embed-responsive-item" src=<%= "https://www.youtube.com/embed/#{post.video_id}" %>></iframe>
-    </div>
-
-    <br>
+<div id="contents">
+  <% @posts.each do |post| %>
+      <%= render partial: 'content', locals: { post: post } %>
   <% end %>
 </div>
-
-current_user.likes 
