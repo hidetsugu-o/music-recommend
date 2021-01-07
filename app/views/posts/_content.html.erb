@@ -1,0 +1,27 @@
+<div class="d-flex">
+  <p class="text-center">
+    <%= post.user.name %>
+  </p>
+  <div class="col-1">
+    <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
+  </div>
+
+  <% if user_signed_in? %>
+    <% if current_user.user_id == post.user_id %>
+      <div class="button">
+        <%= link_to "削除", post_path(post.id), method: :delete %>
+      </div>
+    <% end %>
+
+    <div id="post_<%= post.id %>">
+      <%= render partial: 'post', locals: { post: post } %>
+    </div>
+
+  <% end %>
+</div>
+
+<div class="card embed-responsive embed-responsive-16by9 col-md-6 col-12" >
+  <iframe class="embed-responsive-item" src=<%= "https://www.youtube.com/embed/#{post.video_id}" %>></iframe>
+</div>
+
+<br>
