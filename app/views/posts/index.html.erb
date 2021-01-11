@@ -1,49 +1,68 @@
-
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand text-white" href="#">Recommend Music Storage!</a>
-    <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-
-      <% unless user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to 'LINEでログイン', user_line_omniauth_authorize_path, { method: :post, class: "nav-link text-white" } %>
-        </li>
-      <% else %>
-        <li class="nav-item active">
-          <%= link_to "ログアウト", destroy_user_session_path, { method: :delete, class: "nav-link text-white" } %>
-        </li>
-      <% end %>
-
-      </ul>
+    <div id="column">
+      <h2 class="text-center py-3 text-light" style="font-size: 50px;">Pick Up Music</h2>
     </div>
-  </nav>
-</header>
+    <div class="keyvisual m-3">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <% @posts.sample(1).each do |post| %>
+            <div class="carousel-item active">
+              <iframe class="d-block w-100 embed-responsive embed-responsive-16by9" width="560" height="315" src=<%= "https://www.youtube.com/embed/#{post.video_id}?rel=0&fs=0" %> frameborder="0"></iframe>
+            </div>
+          <% end %>
+          <% @posts.sample(2).reverse_each do |post| %>
+            <div class="carousel-item">
+              <iframe class="d-block w-100 embed-responsive embed-responsive-16by9" width="560" height="315" src=<%= "https://www.youtube.com/embed/#{post.video_id}?rel=0&fs=0" %> frameborder="0"></iframe>
+            </div>
+          <% end %>
 
-<% if user_signed_in? %>
-  <div class="col-6 pt-3">
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div> 
+    </div>
+
+
+<% unless user_signed_in? %>
+  <div class="container col-6">
+    <%= link_to user_line_omniauth_authorize_path, style: "text-decoration: none;", method: :post do %>
+      <div class="bg-success text-light text-center p-3 m-5 rounded-pill border border-dark" style="font-size: 40px;">
+        LINEでログイン<i class="fab fa-line"></i>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="container col-6">
     <!-- Button trigger modal -->
-    <div class="text-dark border p-3" data-toggle="modal" data-target="#exampleModalLong">
-      投稿しよう！
+    <div class="bg-danger text-white text-center p-3 m-5 rounded-pill border border-dark" style="font-size: 40px; cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
+      さあ！投稿しよう
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Youtubeのリンクを記載してね</h5>
+            <div class="modal-title text-dark" style="font-size: 30px;" id="exampleModalLongTitle">Youtubeのリンクを貼ってね</div>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <%= form_with model:@post, remote: true do |f| %>
-              <%= f.text_area :video_id, placeholder: "YouTubeのリンクを記載してね" %>
-              <%= f.submit '投稿する' %>
+          <div class="modal-body text-right">
+            <%= form_with model:@post, local: true do |f| %>
+              <%= f.text_area :video_id, { class: "form-control", rows: "2", style: "resize: none; font-size: 20px;", placeholder: "YouTubeのリンク" } %>
+              <br>
+              <%= f.submit '投稿する', class: "btn btn-danger", style: "font-size: 30px;" %>
             <% end %>
           </div>
         </div>
@@ -52,8 +71,13 @@
   </div>
 <% end %>
 
-<div id="contents">
-  <% @posts.each do |post| %>
+<div class="h-100">
+  <div id="column">
+    <h2 class="text-center py-3 text-light" style="font-size: 50px;">最新の投稿</h2>
+  </div>
+  <div id="contents" class="d-flex flex-wrap">
+    <% @posts.first(6).each do |post| %>
       <%= render partial: 'content', locals: { post: post } %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
