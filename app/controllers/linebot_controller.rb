@@ -17,16 +17,24 @@ class LinebotController < ApplicationController
 
           user_id = contact['userId']
           name = contact['displayName']
+          str = event.message['text']
 
-          reply = {
-            type: 'text',
-            text: "#{name}さん、登録が完了したぺん！\n\nhttps://music-recommend-32514.herokuapp.com/"
-          }
+          post = Post.new(video_id: str, user_id: user_id)
 
-          url = event.message['text']
-          url_slice(url)
-
-          client.reply_message(event['replyToken'], reply) if Post.create(video_id: url, user_id: user_id)
+          if post.include_youtube?
+            post.save
+            reply = {
+              type: 'text',
+              text: "#{name}さん、登録が完了したぺん！\n\nhttps://music-recommend-32514.herokuapp.com/"
+            }
+            client.reply_message(event['replyToken'], reply)
+          else
+            reply = {
+              type: 'text',
+              text: "#{name}さん、それは登録できないペン。。。"
+            }
+            client.reply_message(event['replyToken'], reply)
+          end
         end
       end
     end
@@ -50,13 +58,5 @@ class LinebotController < ApplicationController
     signature = request.env['HTTP_X_LINE_SIGNATURE']
 
     head :bad_request unless client.validate_signature(body, signature)
-  end
-
-  def url_slice(url)
-    if url.include?('=')
-      url.slice!('https://www.youtube.com/watch?v=')
-    else
-      url.slice!('https://youtu.be/')
-    end
   end
 end
