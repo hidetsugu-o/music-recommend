@@ -28,10 +28,10 @@ class PostsController < ApplicationController
 
   def url_slice(post)
     url = post.video_id
-    if url.include?("=")
-      url.slice!("https://www.youtube.com/watch?v=")
+    if url.include?('=')
+      url.slice!('https://www.youtube.com/watch?v=')
     else
-      url.slice!("https://youtu.be/")
+      url.slice!('https://youtu.be/')
     end
   end
 

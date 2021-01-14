@@ -1,10 +1,9 @@
 <% if current_user.likes.exists?(post_id: post.id) %>
-  <%= link_to post_likes_path(post.id), method: :delete, remote: true do %>
-    <i class="fas fa-thumbs-up"></i>
+  <%= link_to post_likes_path(post.id), style: "text-decoration: none;", method: :delete, remote: true do %>
+    <i class="fas fa-thumbs-up" style="color: #ff0000; font-size: 35px;"></i><span style="color: #ff0000; font-size: 40px;"><%= " #{post.liked_users.count}" %></span>
   <% end %>
 <% else %>
-  <%= link_to post_likes_path(post.id), method: :post, remote: true do %>
-    <i class="far fa-thumbs-up"></i>
+  <%= link_to post_likes_path(post.id), style: "text-decoration: none;", method: :post, remote: true do %>
+    <i class="far fa-thumbs-up" style="color: #ff0000; font-size: 35px;"></i><span style="color: #ff0000; font-size: 40px;"><%= " #{post.liked_users.count}" %></span>
   <% end %>
 <% end %>
-(<%= post.liked_users.count %>)
