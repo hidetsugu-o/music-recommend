@@ -8,7 +8,7 @@ class User < ApplicationRecord
   self.primary_key = :user_id
 
   with_options presence: true do
-    validates :user_id, uniqueness: true
+    validates :user_id, uniqueness: { case_sensitive: true }
     validates :name
     validates :password
   end
