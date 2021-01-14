@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :omniauthable, omniauth_providers: [:line]
-       # :validatable
+  # :validatable
 
   self.primary_key = :user_id
 
@@ -25,8 +25,7 @@ class User < ApplicationRecord
       icon: auth.info.image,
       message: auth.info.description,
       password: pass,
-      password_confirmation: pass,
+      password_confirmation: pass
     )
   end
-
 end

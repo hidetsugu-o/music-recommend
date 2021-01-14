@@ -10,6 +10,46 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav class="navbar navbar-dark d-flex justify-content-between py-5 pr-5 pl-3" style="background-color: black;">
+      <a class="navbar-brand ml-4 d-flex align-items-center"  href=<%= root_path %> >
+        <i class="fas fa-compact-disc text-danger mr-3" style="font-size: 80px;"></i><span style="font-size: 30px;">Music<br>Recommend</span>
+      </a>
+      <button class="btn btn-link"  type="button" data-toggle="modal" data-target="#menuModal" aria-label="Toggle navigation">
+        <i class="fas fa-bars" style="font-size: 50px; color: white;"></i>
+      </button>
+    </nav>
+
+    <div class="modal fade fullscreen" id="menuModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content p-5">
+          <div class="modal-header">
+          <h5 class="modal-title" style="font-size: 50px;">メニュー</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="font-size: 50px;">×</span>
+          </button>
+          </div>
+          <div class="modal-body">
+            <ul style="list-style-type:none;">
+              <li><%= link_to "ユーザーの一覧", users_path, style: "font-size: 40px;" %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "マイページ", user_path(current_user), style: "font-size: 40px;" %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, style: "font-size: 40px;", method: :delete %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.fullscreen -->
+
+    <div style="background-color: black;">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="text-white text-center p-3" style="background-color: black;">
+        Copyright - Hidetsugu Obayashi, 2020 All Rights Reserved.
+      </div>
+    </footer>
   </body>
 </html>
