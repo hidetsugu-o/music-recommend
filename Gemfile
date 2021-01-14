@@ -61,4 +61,5 @@ gem 'pry-rails'
 gem 'devise'
 gem 'line-bot-api'
 gem 'omniauth-line', :github => 'gomo/omniauth-line'
-gem "omniauth-rails_csrf_protection"
+gem 'omniauth-rails_csrf_protection'
+gem 'rails-i18n'
