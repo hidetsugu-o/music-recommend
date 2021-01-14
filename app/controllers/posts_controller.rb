@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :judge_user?, except: [:index]
+
   def index
     @posts = Post.order('created_at DESC').includes(:user)
     @post = Post.new
@@ -6,8 +8,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    url_slice(@post)
-    if @post.save
+    if @post.include_youtube?
+      @post.save
       redirect_to root_path
     else
       redirect_to root_path
@@ -26,13 +28,8 @@ class PostsController < ApplicationController
 
   private
 
-  def url_slice(post)
-    url = post.video_id
-    if url.include?('=')
-      url.slice!('https://www.youtube.com/watch?v=')
-    else
-      url.slice!('https://youtu.be/')
-    end
+  def judge_user?
+    redirect_to root_path unless user_signed_in?
   end
 
   def post_params
