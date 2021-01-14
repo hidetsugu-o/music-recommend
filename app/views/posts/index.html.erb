@@ -59,8 +59,8 @@
             </button>
           </div>
           <div class="modal-body text-right">
-            <%= form_with model:@post, local: true do |f| %>
-              <%= f.text_area :video_id, { class: "form-control", rows: "2", style: "resize: none; font-size: 20px;", placeholder: "YouTubeのリンク" } %>
+            <%= form_with model: @post, local: true do |f| %>
+              <%= f.text_area :video_id, { class: "form-control", rows: "2", style: "resize: none; font-size: 20px;", placeholder: "YouTubeのリンク以外は登録されません" } %>
               <br>
               <%= f.submit '投稿する', class: "btn btn-danger", style: "font-size: 30px;" %>
             <% end %>
