@@ -3,7 +3,7 @@ module OmniauthMacros
     OmniAuth.config.mock_auth[:line] = OmniAuth::AuthHash.new(
       {
         provider: 'line',
-        uid: Faker::Internet.password(min_length: 20) + '1a',
+        uid: "#{Faker::Internet.password(min_length: 20)}1a",
         info: {
           name: Faker::Name.name,
           icon: Faker::Internet.url,

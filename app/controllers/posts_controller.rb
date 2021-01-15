@@ -8,19 +8,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.include_youtube?
-      @post.save
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
+    @post.save if @post.include_youtube?
+    redirect_to root_path
   end
 
   def destroy
     post = Post.find(params[:id])
     if current_user.user_id == post.user_id
       post.destroy
-      redirect_to root_path
+      redirect_to user_path(current_user.user_id)
     else
       redirect_to root_path
     end

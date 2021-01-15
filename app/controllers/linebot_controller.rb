@@ -27,14 +27,14 @@ class LinebotController < ApplicationController
               type: 'text',
               text: "#{name}さん、登録が完了したぺん！\n\nhttps://music-recommend-32514.herokuapp.com/"
             }
-            client.reply_message(event['replyToken'], reply)
           else
             reply = {
               type: 'text',
               text: "#{name}さん、それは登録できないペン。。。"
             }
-            client.reply_message(event['replyToken'], reply)
           end
+
+          client.reply_message(event['replyToken'], reply)
         end
       end
     end
