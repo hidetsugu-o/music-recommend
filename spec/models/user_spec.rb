@@ -26,26 +26,26 @@ RSpec.describe User, type: :model do
       it 'user_idが空だと登録できない' do
         @user.user_id = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Userを入力してください")
+        expect(@user.errors.full_messages).to include('Userを入力してください')
       end
 
       it 'User_idが重複していると登録できない' do
         @user.save
         another_user = FactoryBot.build(:user, user_id: @user.user_id)
         another_user.valid?
-        expect(another_user.errors.full_messages).to include("Userはすでに存在します")
+        expect(another_user.errors.full_messages).to include('Userはすでに存在します')
       end
 
       it 'nameが空だと登録できない' do
         @user.name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nameを入力してください")
+        expect(@user.errors.full_messages).to include('Nameを入力してください')
       end
 
       it 'passwordが空では登録できない' do
         @user.password = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Passwordを入力してください")
+        expect(@user.errors.full_messages).to include('Passwordを入力してください')
       end
     end
   end

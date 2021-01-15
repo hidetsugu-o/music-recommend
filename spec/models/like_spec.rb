@@ -22,20 +22,20 @@ RSpec.describe Like, type: :model do
       it 'user_idが存在しないと登録できない' do
         @like.user_id = nil
         @like.valid?
-        expect(@like.errors.full_messages).to include("Userを入力してください")
+        expect(@like.errors.full_messages).to include('Userを入力してください')
       end
 
       it 'post_idが存在しないと登録できない' do
         @like.post_id = nil
         @like.valid?
-        expect(@like.errors.full_messages).to include("Postを入力してください")
+        expect(@like.errors.full_messages).to include('Postを入力してください')
       end
 
       it 'user_idとpost_idが同一のデータが既に保存されている場合、登録できない' do
         @like.save
         same_like = FactoryBot.build(:like, user_id: @like.user_id, post_id: @like.post_id)
         same_like.valid?
-        expect(same_like.errors.full_messages).to include("Postはすでに存在します")
+        expect(same_like.errors.full_messages).to include('Postはすでに存在します')
       end
     end
   end
