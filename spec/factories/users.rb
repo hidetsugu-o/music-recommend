@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    user_id               { Faker::Internet.password(min_length: 20) + '1a' }
+    user_id               { "#{Faker::Internet.password(min_length: 20)}1a" }
     name                  { Faker::Name.name }
     icon                  { Faker::Internet.url }
     message               { Faker::Music.instrument }
