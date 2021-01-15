@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'LINE連携で新規登録（ログイン）、ログアウト', type: :system do
+RSpec.describe 'Users', type: :system do
   context 'LINE連携で新規登録（ログイン）、ログアウトができる時' do
     before do
       # LINE認証後のレスポンスのモックを生成
