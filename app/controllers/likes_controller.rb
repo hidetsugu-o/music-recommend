@@ -1,8 +1,9 @@
 class LikesController < ApplicationController
+  before_action :judge_user?
   before_action :set_post
 
   def create
-    like = Like.create(like_params)
+    Like.create(like_params)
   end
 
   def destroy
@@ -18,5 +19,9 @@ class LikesController < ApplicationController
 
   def set_post
     @post = Post.find(params[:post_id])
+  end
+
+  def judge_user?
+    redirect_to root_path unless user_signed_in?
   end
 end

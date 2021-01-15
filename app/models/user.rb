@@ -8,7 +8,7 @@ class User < ApplicationRecord
   self.primary_key = :user_id
 
   with_options presence: true do
-    validates :user_id, uniqueness: true
+    validates :user_id, uniqueness: { case_sensitive: true }
     validates :name
     validates :password
   end
@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     pass = Devise.friendly_token
-    user = User.where(user_id: auth.uid).first_or_create(
+    User.where(user_id: auth.uid).first_or_create(
       user_id: auth.uid,
       name: auth.info.name,
       icon: auth.info.image,
