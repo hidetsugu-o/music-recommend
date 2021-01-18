@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MusicRecommend</title>
+    <title>RecoTune Storage | みんながオススメした曲を振り返ろう</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicons/favicon.ico' %>
+    <%= favicon_link_tag 'favicons/apple-touch-icon-180x180.png', {rel: 'apple-touch-icon', sizes: '180x180', type: 'img/png'} %>
   </head>
 
   <body>
 
     <nav class="navbar navbar-dark d-flex justify-content-between py-5 pr-5 pl-3" style="background-color: black;">
       <a class="navbar-brand ml-4 d-flex align-items-center"  href=<%= root_path %> >
-        <i class="fas fa-compact-disc text-danger mr-3" style="font-size: 80px;"></i><span style="font-size: 30px;">Music<br>Recommend</span>
+        <i class="fas fa-compact-disc text-danger mr-2" style="font-size: 70px;"></i><span style="font-size: 30px;">RecoTune Storage</span>
       </a>
       <button class="btn btn-link"  type="button" data-toggle="modal" data-target="#menuModal" aria-label="Toggle navigation">
         <i class="fas fa-bars" style="font-size: 50px; color: white;"></i>
@@ -31,9 +33,16 @@
           </div>
           <div class="modal-body">
             <ul style="list-style-type:none;">
-              <li><%= link_to "ユーザーの一覧", users_path, style: "font-size: 40px;" %></li>
-              <% if user_signed_in? %>
+              <% unless user_signed_in? %>
+                <%= link_to user_line_omniauth_authorize_path, style: "font-size: 40px;", method: :post do %>
+                  <li style="font-size: 40px;">
+                    LINEでログイン<i class="fab fa-line"></i>
+                  </li>
+                <% end %>
+              <% else %>
+                <li><%= link_to "トップページ", root_path, style: "font-size: 40px;" %></li>
                 <li><%= link_to "マイページ", user_path(current_user), style: "font-size: 40px;" %></li>
+                <li><%= link_to "ユーザーの一覧", users_path, style: "font-size: 40px;" %></li>
                 <li><%= link_to "ログアウト", destroy_user_session_path, style: "font-size: 40px;", method: :delete %></li>
               <% end %>
             </ul>

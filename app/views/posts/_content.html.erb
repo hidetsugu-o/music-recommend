@@ -2,9 +2,14 @@
   <div class="card bg-dark  text-light mb-3" style="border-radius: 15px;">
     <div class="card-header d-flex align-items-center pb-1" >
       <div class="card-text col-2 p-2">
+      <% if user_signed_in? %>
         <%= link_to user_path(post.user.user_id) do %>
           <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
         <% end %>
+      <% else %>
+        <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
+      <% end %>
+
       </div>
       <div class="card-text align-self-start pl-1 pt-2" style="font-size: 20px;">
         <%= post.user.name %>

@@ -1,5 +1,5 @@
     <div id="column">
-      <h2 class="text-center py-3 text-light" style="font-size: 50px;">Pick Up Music</h2>
+      <h2 class="text-center py-4 text-light" style="font-size: 50px;">過去の投稿からピックアップ</h2>
     </div>
     <div class="keyvisual m-3">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -42,10 +42,18 @@
     <% end %>
   </div>
 <% else %>
+  <div id="column">
+    <h2 class="text-center py-4 text-light" style="font-size: 50px;">みんなのオススメが一覧で見れるよ</h2>
+  </div>
+  <div class="mx-3">
+    <%= render partial: 'users/user-index' %>
+  </div>
+
+
   <div class="container col-6">
     <!-- Button trigger modal -->
-    <div class="bg-danger text-white text-center p-3 m-5 rounded-pill border border-dark" style="font-size: 40px; cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
-      さあ！投稿しよう
+    <div class="bg-danger text-white text-center p-3 m-5 rounded-pill border border-dark" style="font-size: 30px; cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
+      ここからも投稿できるよ
     </div>
 
     <!-- Modal -->
@@ -73,7 +81,7 @@
 
 <div class="h-100">
   <div id="column">
-    <h2 class="text-center py-3 text-light" style="font-size: 50px;">最新の投稿</h2>
+    <h2 class="text-center py-4 text-light" style="font-size: 50px;">みんなの最新の投稿</h2>
   </div>
   <div id="contents" class="d-flex flex-wrap">
     <% @posts.first(6).each do |post| %>
