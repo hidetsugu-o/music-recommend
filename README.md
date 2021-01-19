@@ -1,12 +1,12 @@
 # RecoTune Storage
-LINE上でみんながオススメしたYouTube上の楽曲を、まとめて振り返ることができるアプリです。<br>[Heroku](https://music-recommend-32514.herokuapp.com/)でアプリがチェックできます！
+LINE上でみんながオススメしたYouTubeの楽曲を、まとめて振り返ることができるアプリです。<br>[Heroku](https://music-recommend-32514.herokuapp.com/)でアプリがチェックできます！
 
 ## どんなアプリ？
 
 - ログインすると..<br>
 ![result](https://user-images.githubusercontent.com/74892038/105012068-12f10b00-5a81-11eb-9f19-9be37a1ec9cc.gif)
 
-- みんなのオススメ楽曲を振り返ることができます！<br>
+- みんなの投稿を振り返ることができます！<br>
 ![result](https://user-images.githubusercontent.com/74892038/105011827-c60d3480-5a80-11eb-9cdd-1ed28fefa4f7.gif)
 
 ## 目次
@@ -29,7 +29,7 @@ LINE上でみんながオススメしたYouTube上の楽曲を、まとめて振
 ```
 #### 楽曲投稿方法
 1. `LINE Bot`を友達登録します（以下のQRコードを読み込んでください） 
-   ![QRコード](https://qr-official.line.me/sid/M/783xlnxf.png)
+![qrコード](https://user-images.githubusercontent.com/74892038/105025851-3b810100-5a91-11eb-8e80-fefb8ad9eb10.png)
 2. `LINE Bot`にYouTubeリンク付きのメッセージを送信すると、アプリに動画が登録されます
 ```html
 グループにBotを招待して、そこでメッセージを送信してもOKです
@@ -66,11 +66,12 @@ LINE上でみんながオススメしたYouTube上の楽曲を、まとめて振
   - 投稿に成功するとBotからメッセージが返って来ます
   - YouTubeリンクのビデオIDだけを抽出してデータ登録するので、他にコメント等が混ざっていても登録することができます
   - YouTubeの短縮アドレス、埋め込みアドレスにも対応しています
+<br>
+
 - 投稿へのイイね機能（PC画面で実験）<br>
 ![result](https://user-images.githubusercontent.com/74892038/105017669-6403fd80-5a87-11eb-87a3-75df707e50f1.gif)
   - Ajax通信を用いて非同期でイイねをつけることができます
   - アイコンは、Font Awesomeのものを利用しています
-
 
 ## 今後の実装予定
 - 初回ログイン時に、Botと友達になる選択肢が表示される機能
