@@ -7,8 +7,7 @@ LINE上でみんながオススメしたYouTubeの楽曲を、まとめて振り
 
 ![result](https://user-images.githubusercontent.com/74892038/105012068-12f10b00-5a81-11eb-9f19-9be37a1ec9cc.gif)
 
-#### 各ユーザーの過去の投稿を振り返ることができます！
-<br>
+#### 各ユーザーの過去の投稿を振り返ることができます！<br>
 
 ![result](https://user-images.githubusercontent.com/74892038/105011827-c60d3480-5a80-11eb-9cdd-1ed28fefa4f7.gif)
 
@@ -83,8 +82,7 @@ LINE上でみんながオススメしたYouTubeの楽曲を、まとめて振り
 - レスポンシブデザイン
 
 ## こだわった機能
-#### LINE Botを用いたYouTubeリンクの投稿機能
-</br>
+#### LINE Botを用いたYouTubeリンクの投稿機能</br>
 
 ![result](https://user-images.githubusercontent.com/74892038/105020573-cd394000-5a8a-11eb-8c04-01643b3b429c.gif)
   - 投稿に成功すると、Botからメッセージが返って来ます。
@@ -92,8 +90,7 @@ LINE上でみんながオススメしたYouTubeの楽曲を、まとめて振り
   - YouTubeの短縮リンク、埋め込みリンクにも対応しています。
 <br>
 
-#### 投稿へのイイね機能（PC画面で実験）
-<br>
+#### 投稿へのイイね機能（PC画面で実験）<br>
 
 ![result](https://user-images.githubusercontent.com/74892038/105017669-6403fd80-5a87-11eb-87a3-75df707e50f1.gif)
   - Ajax通信を用いて、非同期でイイねをつけることができます。
