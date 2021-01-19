@@ -1,12 +1,12 @@
 # RecoTune Storage
-LINE上でみんながオススメしたYouTube上の楽曲を、まとめて振り返ることができるアプリです。[Heroku](https://music-recommend-32514.herokuapp.com/)でアプリがチェックできます！
+LINE上でみんながオススメしたYouTube上の楽曲を、まとめて振り返ることができるアプリです。<br>[Heroku](https://music-recommend-32514.herokuapp.com/)でアプリがチェックできます！
 
 ## どんなアプリ？
 
-- ログインすると..
+- ログインすると..<br>
 ![result](https://user-images.githubusercontent.com/74892038/105012068-12f10b00-5a81-11eb-9f19-9be37a1ec9cc.gif)
 
-- みんなのオススメ楽曲を振り返ることができます！
+- みんなのオススメ楽曲を振り返ることができます！<br>
 ![result](https://user-images.githubusercontent.com/74892038/105011827-c60d3480-5a80-11eb-9cdd-1ed28fefa4f7.gif)
 
 ## 目次
@@ -125,15 +125,16 @@ LINE上でみんながオススメしたYouTube上の楽曲を、まとめて振
   - 投稿からランダムにピックアップ（3曲）
 
 ## こだわりの機能
-- LINE Botを用いたYouTubeリンクの投稿機能
+- LINE Botを用いたYouTubeリンクの投稿機能<br>
 ![result](https://user-images.githubusercontent.com/74892038/105020573-cd394000-5a8a-11eb-8c04-01643b3b429c.gif)
+<br>
   - 投稿に成功するとBotからメッセージが返って来ます
   - YouTubeリンクのビデオIDだけを抽出してデータ登録するので、他にコメント等が混ざっていても登録することができます
   - YouTubeの短縮アドレス、埋め込みアドレスにも対応しています
 <br>
-- 投稿へのイイね機能（PC画面で実験）
+- 投稿へのイイね機能（PC画面で実験）<br>
 ![result](https://user-images.githubusercontent.com/74892038/105017669-6403fd80-5a87-11eb-87a3-75df707e50f1.gif)
-  
+<br>
   - Ajax通信を用いて非同期でイイねをつけることができます
   - アイコンは、Font Awesomeのものを利用しています
 
@@ -149,7 +150,8 @@ LINE上でみんながオススメしたYouTube上の楽曲を、まとめて振
 - 以下のER図をご参照ください
 ![ER＿MR](https://user-images.githubusercontent.com/74892038/105013289-716ab900-5a82-11eb-8372-a929eca47f20.png)
 
-## アプリ開発環境
+## 開発環境や使用したライブラリなど
+### 開発環境
 - macOS: Catalina 10.15.7（19H2）
 - Homebrew: 2.7.5
 - ruby: 2.6.5p114
@@ -166,7 +168,7 @@ LINE上でみんながオススメしたYouTube上の楽曲を、まとめて振
 - omniauth-rails_csrf_protection : 0.1.2
 - rails-i18n : 6.0.0
 
-> omniauth-lineは下記記事を参考に使用させて頂きました
+omniauth-lineは下記記事を参考に使用させて頂きました
 > https://qiita.com/MasamotoMiyata/items/ccc932e96a4f5dd6c2e1
 
 #### JavaScriptライブラリ
