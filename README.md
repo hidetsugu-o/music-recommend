@@ -3,8 +3,7 @@ LINE上でみんながオススメしたYouTubeの楽曲を、まとめて振り
 
 ## どんなアプリ？
 
-#### ログインすると..
-<br>
+#### ログインすると..<br>
 
 ![result](https://user-images.githubusercontent.com/74892038/105012068-12f10b00-5a81-11eb-9f19-9be37a1ec9cc.gif)
 
