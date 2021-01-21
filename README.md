@@ -1,20 +1,31 @@
 # RecoTune Storage
-LINE上でみんながオススメしたYouTubeの楽曲を、まとめて振り返ることができるアプリです。<br>[Heroku](https://music-recommend-32514.herokuapp.com/)でアプリがチェックできます！
+<img src="https://user-images.githubusercontent.com/74892038/105269714-d552c600-5bd7-11eb-8009-1f6cf96f988c.png"  style="border-radius: 20px; width: 50%;">
 
 ## 1. どんなアプリ？
 
+LINEアプリでみんなが紹介したYouTube上の楽曲を、後からまとめて振り返ることができるアプリです。
+
+- 今までどんな投稿をしてきたか、ユーザー毎に見ることができます。
+- レスポンシブWebデザインに対応、スマホでも操作しやすいレイアウトです。
+
+[Heroku](https://music-recommend-32514.herokuapp.com/)でアプリがチェックできます！<br>
+
 #### ログインすると..<br>
 
-![result](https://user-images.githubusercontent.com/74892038/105012068-12f10b00-5a81-11eb-9f19-9be37a1ec9cc.gif)
+![result](https://user-images.githubusercontent.com/74892038/105274381-6b8aea00-5be0-11eb-900c-f859fe6ce254.gif)
 
 #### 各ユーザーの過去の投稿を振り返ることができます！<br>
 
-![result](https://user-images.githubusercontent.com/74892038/105011827-c60d3480-5a80-11eb-9cdd-1ed28fefa4f7.gif)
+![result](https://user-images.githubusercontent.com/74892038/105274190-0d5e0700-5be0-11eb-9581-ff16e9657a31.gif)
+
+#### LINE BotがYouTubeリンクを登録してくれます！<br>
+
+![result](https://user-images.githubusercontent.com/74892038/105020573-cd394000-5a8a-11eb-8c04-01643b3b429c.gif)
 
 ## 2. 目次
   - [3. 利用方法](#3-利用方法)
-  - [4. 叶えようとしたニーズ](#4-叶えようとしたニーズ)
-  - [5. 要件定義](#5-要件定義)
+  - [4. 誰のどのような課題を解決しようと思ったか](#4-誰のどのような課題を解決しようと思ったか)
+  - [5. 機能一覧（どのように解決したか）](#5-機能一覧どのように解決したか)
   - [6. こだわった機能](#6-こだわった機能)
   - [7. 今後の実装予定](#7-今後の実装予定)
   - [8. データベース設計](#8-データベース設計)
@@ -31,76 +42,74 @@ LINE上でみんながオススメしたYouTubeの楽曲を、まとめて振り
 ※ログインしなくても、トップページから最新の投稿を見ることが可能です。
 ```
 #### 楽曲投稿方法
-1. LINEアプリで`LINE Bot`を友達登録します。（以下のQRコードを読み込んでください）<br>
+1. LINEアプリで`LINE Bot`を友達登録します。（スマホをお使いの場合はボタンをクリック、PCの場合はQRコードをスマホで読み取り）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://lin.ee/8KatMpp"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
 ![qrコード](https://user-images.githubusercontent.com/74892038/105025851-3b810100-5a91-11eb-8e80-fefb8ad9eb10.png)
-2. `LINE Bot`にYouTubeリンク付きのメッセージを送信すると、アプリに楽曲が登録されます。
+
+1. `LINE Bot`にYouTubeリンク付きのメッセージを送信すると、アプリに楽曲が登録されます。
 ```html
 グループにBotを招待して、そこでメッセージを送信してもOKです。
 ```
 
-## 4. 叶えようとしたニーズ
-#### ターゲット
-- LINEを使って、YouTube上のオススメ楽曲を紹介しあっているグループ
-#### ニーズ
+## 4. 誰のどのような課題を解決しようと思ったか
+
+#### 誰の？
+- LINEを使って、YouTube上のオススメ楽曲を紹介しあっているグループ（私と友達w）
+#### どのような課題を？
 - 過去に投稿されたオススメ楽曲を、後からまとめて振り返ることができたら楽しそう！
 - 投稿一覧をユーザー毎にまとめて表示することで、みんなの投稿の傾向を知れたら面白い！！
 - スマホでも見やすく！！！
-#### 必要な機能
-- LINEメッセージを受け取り、YouTubeリンクのみをアプリに登録する機能
-- ユーザー管理機能
-  - LINEアカウントでのログイン機能を含む
-- ユーザー毎の投稿を一覧表示する機能
-  - YouTubeの埋め込みプレーヤーが表示される
-- レスポンシブデザインを意識
 
-##### 追加で実装した機能
-```html
-・色々な条件での一覧表示機能
-  トップページ ： ランダムにピックアップされた投稿、最新の投稿
-  ユーザーページ ： イイねした投稿、ランダムにピックアップされた投稿
-・アプリから楽曲を投稿できる機能
-・投稿の削除機能
-・投稿へのイイね機能
-```
-
-## 5. 要件定義
+## 5. 機能一覧（どのように解決したか）
 ### 実装ページ
 - トップページ （ログインなしでもアクセス可能）
 - ユーザーの一覧ページ
 - 各ユーザーの詳細ページ
 ### 実装機能
-- LINEアカウントを用いたログイン機能
-- LINE Botを用いたYouTubeリンクの投稿機能
-- サイトからのYouTubeリンク投稿機能
+- ユーザー管理機能（LINEアカウント連携）
+  - サインアップ・ログイン・ログアウト・アカウント削除
+- YouTubeリンク投稿機能
+  - LINE Botを利用して、LINEアプリから投稿できる
+  - 投稿フォームを利用して、アプリから投稿できる
 - 投稿の一覧表示機能
-  - トップページ ： ランダムにピックアップされた投稿、最新の投稿
-  - ユーザーページ ： ユーザーの投稿、イイねした投稿、ランダムにピックアップされた投稿
+  - トップページ
+    - ランダムにピックアップされた投稿3件が、カルーセルで表示される
+    - 最新の投稿6件が、一覧で表示される
+  - ユーザーページ（横スクロールでコンテンツが表示される）
+    - ユーザー本人の投稿が、新しい順で全て一覧表示される
+    - ユーザーがイイねした投稿が、全て一覧表示される
+    - ユーザー本人の投稿のうち、ランダムにピックアップされた3件が、一覧で表示される
 - 投稿の削除機能
 - 投稿へのイイね機能
+  - Ajaxを用いた非同期通信
 - ユーザーの一覧表示機能
 - ユーザーの詳細表示機能
-- レスポンシブデザイン
+- レスポンシブWebデザイン
+  - Bootstrapのグリッドシステムを利用
 
 ## 6. こだわった機能
-#### LINE Botを用いたYouTubeリンクの投稿機能</br>
+#### YouTubeリンク投稿機能（LINE Bot利用）</br>
 
-![result](https://user-images.githubusercontent.com/74892038/105020573-cd394000-5a8a-11eb-8c04-01643b3b429c.gif)
-  - 投稿に成功すると、Botからメッセージが返って来ます。
-  - YouTubeリンクのビデオIDだけを抽出してデータ登録します。メッセージにコメント等が混ざっていても登録できます。
-  - YouTubeの短縮リンク、埋め込みリンクにも対応しています。
+![result](https://user-images.githubusercontent.com/74892038/105020573-cd394000-5a8a-11eb-8c04-01643b3b429c.gif)<br>
+- こだわった点
+  - YouTubeリンクのビデオIDだけを抽出してデータ登録します。
+  - YouTubeの3種のURL（メイン・短縮・埋め込み）に対応。
+  - 登録が完了すると、Botから登録完了のメッセージが届きます。
 <br>
 
 #### 投稿へのイイね機能（PC画面で実験）<br>
 
-![result](https://user-images.githubusercontent.com/74892038/105017669-6403fd80-5a87-11eb-87a3-75df707e50f1.gif)
+![result](https://user-images.githubusercontent.com/74892038/105017669-6403fd80-5a87-11eb-87a3-75df707e50f1.gif)<br>
+- こだわった点
   - Ajax通信を用いて、非同期でイイねをつけることができます。
-  - アイコンは、Font Awesomeのものを利用しています。
+  - Font Awesomeのそれっぽいアイコンを利用しています。
 
 ## 7. 今後の実装予定
-- 初回ログイン時に、Botと友達になる選択肢が表示される機能
+- 初回ログイン時に、LINE Botと友達になる選択肢が表示される機能
 - 動画情報（タイトルやタグ等）の保存機能
+  - YouTube Data APIをさわってみたい。
 - サイトの高速化
-  - YouTubeの埋め込みプレーヤーは読み込みが遅いため、ページの読み込み時にはサムネイル画像が表示されるようにする。
+  - YouTubeの埋め込みプレーヤーは読み込みに時間がかかるため、ページの読み込み時にはサムネイル画像が表示されるようにする。
 
 
 ## 8. データベース設計
@@ -111,15 +120,17 @@ LINE上でみんながオススメしたYouTubeの楽曲を、まとめて振り
 
 ## 9. 開発環境や使用したライブラリなど
 ### 開発環境
+
 - macOS: Catalina 10.15.7（19H2）
-- ruby: 2.6.5p114
+- Ruby: 2.6.5p114
 - Rails: 6.0.3.4
-- mysql: 14.14
+- MySQL: 14.14
 - Node.js: 14.15.0
-- yarn: 1.22.10
+- Yarn: 1.22.10
+
 ### 使用ライブラリ
 #### Gem
-- devise : 4.7.3
+- Devise : 4.7.3
 - line-bot-api : 1.17.0
 - omniauth-line : forked by gomo
 - omniauth-rails_csrf_protection : 0.1.2
@@ -129,14 +140,18 @@ omniauth-lineは、下記記事を参考に使用させて頂きました。
 > https://qiita.com/MasamotoMiyata/items/ccc932e96a4f5dd6c2e1
 
 #### JavaScriptライブラリ
-- bootstrap : 4.5.3
-- jquery : 3.5.1
-- popper.js : 1.16.1
+- Bootstrap : 4.5.3
+- jQuery : 3.5.1
+- Popper.js : 1.16.1
+- Font Awesome : 5.15.1
 
-### 使用API
-#### LINE Developers
-- LINEログイン
-- Messaging API
+### オープンAPI
+- LINE Developers
+  - LINEログイン
+  - Messaging API
+
+### Paas
+- Heroku
 
 ## 10. ローカルでの動作方法
 - LINE Developersにて、各種API連携が必要になるため割愛します。
