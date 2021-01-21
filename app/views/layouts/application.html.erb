@@ -44,6 +44,7 @@
                 <li><%= link_to "マイページ", user_path(current_user), style: "font-size: 40px;" %></li>
                 <li><%= link_to "ユーザーの一覧", users_path, style: "font-size: 40px;" %></li>
                 <li><%= link_to "ログアウト", destroy_user_session_path, style: "font-size: 40px;", method: :delete %></li>
+                <li><%= link_to "アカウントの削除（取り消せません！）", user_registration_path, style: "font-size: 40px;", method: :delete %></li>
               <% end %>
             </ul>
           </div>
