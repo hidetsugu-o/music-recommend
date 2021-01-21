@@ -150,7 +150,7 @@ omniauth-lineは、下記記事を参考に使用させて頂きました。
   - LINEログイン
   - Messaging API
 
-### Paas
+### PaaS
 - Heroku
 
 ## 10. ローカルでの動作方法
