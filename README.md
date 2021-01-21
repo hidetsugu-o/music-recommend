@@ -20,7 +20,7 @@ LINEアプリでみんなが紹介したYouTube上の楽曲を、後からまと
 
 #### LINE BotがYouTubeリンクを登録してくれます！<br>
 
-![result](https://user-images.githubusercontent.com/74892038/105020573-cd394000-5a8a-11eb-8c04-01643b3b429c.gif)
+![result](https://user-images.githubusercontent.com/74892038/105284159-363cc700-5bf5-11eb-9995-4eff6518af42.gif)
 
 ## 2. 目次
   - [3. 利用方法](#3-利用方法)
@@ -90,7 +90,7 @@ LINEアプリでみんなが紹介したYouTube上の楽曲を、後からまと
 ## 6. こだわった機能
 #### YouTubeリンク投稿機能（LINE Bot利用）</br>
 
-![result](https://user-images.githubusercontent.com/74892038/105020573-cd394000-5a8a-11eb-8c04-01643b3b429c.gif)<br>
+![result](https://user-images.githubusercontent.com/74892038/105284159-363cc700-5bf5-11eb-9995-4eff6518af42.gif)<br>
 - こだわった点
   - YouTubeリンクのビデオIDだけを抽出してデータ登録します。
   - YouTubeの3種のURL（メイン・短縮・埋め込み）に対応。
