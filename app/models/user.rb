@@ -13,13 +13,13 @@ class User < ApplicationRecord
     validates :password
   end
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
 
   def self.from_omniauth(auth)
     pass = Devise.friendly_token
-    User.where(user_id: auth.uid).first_or_create(
+    User.where(user_id: auth.uid).first_or_initialize(
       user_id: auth.uid,
       name: auth.info.name,
       icon: auth.info.image,
