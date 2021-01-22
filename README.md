@@ -124,7 +124,7 @@ LINEアプリでみんなが紹介したYouTube上の楽曲を、後からまと
 - macOS: Catalina 10.15.7（19H2）
 - Ruby: 2.6.5p114
 - Rails: 6.0.3.4
-- MySQL: 14.14
+- MySQL: 5.6.50
 - Node.js: 14.15.0
 - Yarn: 1.22.10
 
