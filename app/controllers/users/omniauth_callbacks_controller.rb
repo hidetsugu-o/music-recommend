@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentization
     else
-      redirect_to root_path
+      render template: 'devise/registrations/new'
     end
   end
 end

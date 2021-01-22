@@ -1,3 +1,8 @@
 a {
   text-decoration: none;
 }
+
+input:checked + label img {
+  background-color: white;
+}
+
