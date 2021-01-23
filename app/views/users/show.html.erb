@@ -12,7 +12,7 @@
 
   <h1 class="text-white py-3 mx-3">イイねした投稿一覧</h3>
   <div class="d-flex overflow-auto">
-    <% @user_liked_posts.each do |post| %>
+    <% @user_liked_posts.reverse_each do |post| %>
       <%= render partial: 'liked-picked-content', locals: { post: post } %>
     <% end %>
   </div>
