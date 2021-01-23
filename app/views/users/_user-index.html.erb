@@ -1,9 +1,9 @@
 <div id="users" class="d-flex flex-wrap">
   <% @users.each do |user| %>
-    <div class="col-3 p-1">
+    <div class="col-lg-2 col-3 p-1">
       <div class="card bg-dark  text-light mb-3" style="border-radius: 15px;">
-        <div class="card-header pb-1" >
-          <div class="card-text text-center p-2" style="font-size: 20px;">
+        <div class="card-header p-2" >
+          <div class="card-text text-center p-1 my-1" style="font-size: 20px;">
             <%= link_to user_path(user), class: "text-light " do %>
                 Name：<%= user.name %>
             <% end %>
