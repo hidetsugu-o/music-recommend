@@ -41,6 +41,11 @@ LINEアプリでみんなが紹介したYouTube上の楽曲を、後からまと
 
 ※ログインしなくても、トップページから最新の投稿を見ることが可能です。
 ```
+
+- 初回ログイン時に、アプリで使うプロフィールを設定できます。<br>
+
+![IMG_3781](https://user-images.githubusercontent.com/74892038/105568928-cb1ffb80-5d80-11eb-8b71-e9bda3d1daf5.jpg)
+
 #### 楽曲投稿方法
 1. LINEアプリで`LINE Bot`を友達登録します。（スマホをお使いの場合はボタンをクリック、PCの場合はQRコードをスマホで読み取り）<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://lin.ee/8KatMpp"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
