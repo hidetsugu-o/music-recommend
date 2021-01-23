@@ -1,24 +1,26 @@
-<div id="column">
-  <h2 class="text-center py-5 text-light" style="font-size: 50px;"><%= @user.name %>さんのページ</h2>
-</div>
+<div class="vh-100">
+  <div id="column">
+    <h2 class="text-center py-5 text-light" style="font-size: 50px;"><%= @user.name %>さんのページ</h2>
+  </div>
 
-<h1 class="text-white pb-3 mx-3">投稿一覧（新しい順）</h3>
-<div class="d-flex overflow-auto">
-  <% @user_posts.reverse_each do |post| %>
-    <%= render partial: 'posts/content', locals: { post: post } %>
-  <% end %>
-</div>
+  <h1 class="text-white pb-3 mx-3">投稿一覧（新しい順）</h3>
+  <div class="d-flex overflow-auto">
+    <% @user_posts.reverse_each do |post| %>
+      <%= render partial: 'posts/content', locals: { post: post } %>
+    <% end %>
+  </div>
 
-<h1 class="text-white py-3 mx-3">イイねした投稿一覧</h3>
-<div class="d-flex overflow-auto">
-  <% @user_liked_posts.each do |post| %>
-    <%= render partial: 'liked-picked-content', locals: { post: post } %>
-  <% end %>
-</div>
+  <h1 class="text-white py-3 mx-3">イイねした投稿一覧</h3>
+  <div class="d-flex overflow-auto">
+    <% @user_liked_posts.each do |post| %>
+      <%= render partial: 'liked-picked-content', locals: { post: post } %>
+    <% end %>
+  </div>
 
-<h1 class="text-white py-3 mx-3">投稿からピックアップ（3曲）</h3>
-<div class="d-flex overflow-auto">
-  <% @user_posts.sample(3).each do |post| %>
-    <%= render partial: 'liked-picked-content', locals: { post: post } %>
-  <% end %>
+  <h1 class="text-white py-3 mx-3">投稿からピックアップ（3曲）</h3>
+  <div class="d-flex overflow-auto">
+    <% @user_posts.sample(3).each do |post| %>
+      <%= render partial: 'liked-picked-content', locals: { post: post } %>
+    <% end %>
+  </div>
 </div>
