@@ -44,11 +44,11 @@ LINEアプリでみんなが紹介したYouTube上の楽曲を、後からまと
 
 2. 初回ログイン時に、アプリで使うプロフィールを設定できます。<br>
 
-![IMG_3781 (1)](https://user-images.githubusercontent.com/74892038/105569117-5352d080-5d82-11eb-964c-61d182b2aa6b.jpg)
+![IMG_3786 (1)](https://user-images.githubusercontent.com/74892038/105578020-aa779600-5dc0-11eb-8d6b-9f6723ac7045.jpg)
 
 #### 楽曲投稿方法
 1. LINEアプリで`LINE Bot`を友達登録します。（スマホをお使いの場合はボタンをクリック、PCの場合はQRコードをスマホで読み取り）<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://lin.ee/8KatMpp"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://lin.ee/8KatMpp"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36"></a>
 ![qrコード](https://user-images.githubusercontent.com/74892038/105025851-3b810100-5a91-11eb-8e80-fefb8ad9eb10.png)
 
 1. `LINE Bot`にYouTubeリンク付きのメッセージを送信すると、アプリに楽曲が登録されます。
