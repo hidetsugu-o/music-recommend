@@ -7,7 +7,9 @@
           <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
         <% end %>
       <% else %>
-        <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
+        <%= link_to user_line_omniauth_authorize_path, method: :post do %>
+          <img class="img-fluid rounded-circle" src=<%= post.user.icon %> alt="表示できません">
+        <% end %>
       <% end %>
 
       </div>
@@ -35,10 +37,12 @@
         </div>
       <% else %>
         <div class="card-text p-3 text-right">
-          <% if post.likes.exists?(post_id: post.id) %>
-            <i class="fas fa-thumbs-up" style="color: #ff0000; font-size: 40px;"></i><span style="color: #ff0000; font-size: 35px;"><%= "  #{post.liked_users.count}" %></span>
-          <% else %>
-            <i class="far fa-thumbs-up" style="color: #ff0000; font-size: 40px;"></i><span style="color: #ff0000; font-size: 35px;"><%= "  #{post.liked_users.count}" %></span>
+          <%= link_to user_line_omniauth_authorize_path, style: "text-decoration: none;", method: :post do %>
+            <% if post.likes.exists?(post_id: post.id) %>
+              <i class="fas fa-thumbs-up" style="color: #ff0000; font-size: 40px;"></i><span style="color: #ff0000; font-size: 35px;"><%= "  #{post.liked_users.count}" %></span>
+            <% else %>
+              <i class="far fa-thumbs-up" style="color: #ff0000; font-size: 40px;"></i><span style="color: #ff0000; font-size: 35px;"><%= "  #{post.liked_users.count}" %></span>
+            <% end %>
           <% end %>
         </div>
       <% end %>
